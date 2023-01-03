@@ -1,0 +1,24 @@
+ALGORITHM nombre_char
+VAR
+    c:CHAR
+    ls,nw,nv:INTEGER
+BEGIN
+    REPEAT
+        write("donner un char");
+        read (c);
+        ls:=ls+1;
+        IF (c = " ") THEN
+            nw:=nw+1;
+        END_IF
+        IF (c="a" OR c="e" OR c="y" OR c="u" OR c="i" OR c="o") THEN
+            nv:=nv+1;
+        END_IF
+
+
+
+    UNTIL (c=".")
+    write("nombre de mots",nw+1);
+    write("nombre de vo",nv);
+    write("nombre de char",ls);
+    
+END

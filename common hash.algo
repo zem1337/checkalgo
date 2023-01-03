@@ -1,0 +1,23 @@
+ALGORITHM common_hash
+VAR
+    tab1 : ARRAY_OF INTEGER[]:= [12,13,6,10];
+    tab2 : ARRAY_OF INTEGER[]:= [13,10,16,15];
+    sum:INTEGER:=0;
+    h: HASH_TABLE<INTEGER,INTEGER>
+BEGIN
+    FOR i FROM 0 TO tab1.length STEP 1  DO
+        h.insert(tab1[i],1)
+    END_FOR
+    FOR i FROM 0 TO tab2.length STEP 1  DO
+    IF (h.lookup(tab2[i])=true) THEN
+        h.insert(tab2[i],2)
+    ELSE
+        h.insert(tab2[i],1)
+    END_IF
+    END_FOR
+    FOR i FROM 1 TO tab1.length STEP 1  DO
+        IF (h.get(tab1[i])=2) THEN
+        sum:=sum + tab1[i]*2
+        END_IF
+    END_FOR
+END

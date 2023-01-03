@@ -1,0 +1,38 @@
+ALGORITHM algorithm_name
+VAR
+    tab1 : ARRAY_OF INTEGER[]:= [12,13,6,10];
+    tab2 : ARRAY_OF INTEGER[]:= [13,10,16,15];
+    sum:INTEGER:=0;
+    verif : BOOLEAN := false;
+BEGIN
+    FOR i FROM 0 TO tab1.length STEP 1  DO
+    verif := false
+        FOR j FROM 0 TO tab2.length STEP 1  DO
+            IF (tab1[i]=tab2[j]) THEN
+                verif := true
+                
+            END_IF
+            
+        END_FOR
+
+        IF (verif = false) THEN
+            sum := sum + tab1[i]
+        END_IF
+    END_FOR
+    FOR i FROM 0 TO tab2.length STEP 1  DO
+    verif := false
+        FOR j FROM 0 TO tab1.length STEP 1  DO
+            IF (tab2[i]=tab1[j]) THEN
+                verif := true
+                
+            END_IF
+            
+        END_FOR
+
+        IF (verif = false) THEN
+            sum := sum + tab1[i]
+        END_IF
+    END_FOR
+
+    write(sum)
+END
